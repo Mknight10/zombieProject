@@ -9,22 +9,26 @@ public class Main {
         ArrayList<ZombieAbstract>zombies = new ArrayList<>();
         ArrayList<Survivor>survivors = new ArrayList<>();
 
+        // add random number of tanks to zombie arraylist
         for (int i = 0; i < rand.nextInt(15); i++ ){
             zombies.add(new TankZombie());
         }
-
+        // add random number of common infects to zombie arraylist
         for (int i = 0; i < rand.nextInt(15); i++) {
             zombies.add(new CommonInfect());
         }
 
+        // add soldier to survivor arraylist
         for (int i = 0; i < rand.nextInt(10); i++){
             survivors.add(new Soldier());
         }
+        // shuffle zombie arraylist
+        Collections.shuffle(zombies);
 
+        // testing purposes only
         System.out.println(zombies.size());
         System.out.println(survivors.size());
         System.out.println(zombies);
-        Collections.shuffle(zombies);
         System.out.println(zombies);
 
     }
