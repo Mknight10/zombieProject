@@ -6,30 +6,51 @@ public class Main {
     public static void main(String[] args) {
         Random rand = new Random();
 
-        ArrayList<ZombieAbstract>zombies = new ArrayList<>();
-        ArrayList<Survivor>survivors = new ArrayList<>();
+        int tankCount = 0;
+        int commonCount = 0;
+        int soldierCount = 0;
+        int teacherCount = 0;
+        int childCount = 0;
+
+        ArrayList<Character>zombies = new ArrayList<>();
+        ArrayList<Character>survivors = new ArrayList<>();
 
         // add random number of tanks to zombie arraylist
         for (int i = 0; i < rand.nextInt(15); i++ ){
             zombies.add(new TankZombie());
+            tankCount++;
         }
         // add random number of common infects to zombie arraylist
         for (int i = 0; i < rand.nextInt(15); i++) {
             zombies.add(new CommonInfect());
+            commonCount++;
         }
+
 
         // add soldier to survivor arraylist
         for (int i = 0; i < rand.nextInt(10); i++){
             survivors.add(new Soldier());
+            soldierCount++;
         }
-        // shuffle zombie arraylist
-        Collections.shuffle(zombies);
 
-        // testing purposes only
-        System.out.println(zombies.size());
-        System.out.println(survivors.size());
-        System.out.println(zombies);
-        System.out.println(zombies);
+        // add teacher to survivor arraylist
+        for (int i = 0; i < rand.nextInt(10); i++){
+            survivors.add(new Teacher());
+            teacherCount++;
+        }
+
+        // add soldier to survivor arraylist
+        for (int i = 0; i < rand.nextInt(10); i++){
+            survivors.add(new Child());
+            childCount++;
+        }
+
+        // shuffle arraylist orders
+        Collections.shuffle(zombies);
+        Collections.shuffle(survivors);
+
+        System.out.println("\n We have " + survivors.size() + " survivors trying to make it to safety.\n");
+        System.out.println("But there are " + zombies.size() + " zombies waiting for them. \n");
 
     }
 }
