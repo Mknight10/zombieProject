@@ -14,7 +14,7 @@ public class Main {
 
         ArrayList<Character>zombies = new ArrayList<>();
         ArrayList<Character>survivors = new ArrayList<>();
-
+        
         // add random number of tanks to zombie arraylist
         for (int i = 0; i < rand.nextInt(15); i++ ){
             zombies.add(new TankZombie());
@@ -52,5 +52,19 @@ public class Main {
         System.out.println("\n We have " + survivors.size() + " survivors trying to make it to safety.\n");
         System.out.println("But there are " + zombies.size() + " zombies waiting for them. \n");
 
+        for (Character survivor : survivors) {
+            while (survivor.isAlive()) {
+                for (Character zombie : zombies) {
+                    while (zombie.isAlive() && survivor.isAlive()) {
+                        System.out.println(zombie.name);
+                        System.out.println(zombie.health);
+                        System.out.println(survivor.name);
+                        System.out.println(survivor.health);
+                        zombie.health -= survivor.attack;
+                        survivor.health -= zombie.attack;
+                    }
+                }
+            }
+        }
     }
 }
