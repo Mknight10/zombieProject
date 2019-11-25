@@ -1,12 +1,13 @@
+package project;
+
 public abstract class Character {
     String name;
     int health;
     int attack;
-    boolean isAlive;
 
     @Override
     public String toString() {
-        return "Character{" +
+        return "project.Character{" +
                 "name='" + name + '\'' +
                 ", health=" + health +
                 ", attack=" + attack +

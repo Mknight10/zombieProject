@@ -1,3 +1,5 @@
+package project;
+
 public class CommonInfect extends Character {
     public CommonInfect() {
         name = "Common Infect";

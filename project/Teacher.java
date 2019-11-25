@@ -1,3 +1,5 @@
+package project;
+
 public class Teacher extends Character {
 
     public Teacher() {

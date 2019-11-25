@@ -1,3 +1,5 @@
+package project;
+
 public class Soldier extends Character {
     public Soldier() {
         name = "Soldier";
