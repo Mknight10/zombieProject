@@ -1,0 +1,9 @@
+package project;
+
+public class Fists extends Weapon {
+  public Fists() {
+        name = "Shotgun";
+        damage = 1;
+        double accuarcy = 1.0;
+    }
+}
