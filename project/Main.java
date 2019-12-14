@@ -18,9 +18,12 @@ public class Main {
 
         ArrayList<Character>zombies = new ArrayList<>();
         ArrayList<Character>survivors = new ArrayList<>();
+        ArrayList<Weapon>weapons = new ArrayList<>();
+       
 
         createZombies(zombies);
         createSurvivors(survivors);
+        createWeaponsCache(weapons);
 
         // shuffle arraylist orders
         Collections.shuffle(zombies);
@@ -41,12 +44,18 @@ public class Main {
                 Character zombie = zombies.get(j);
 
                 while (zombie.isAlive() && survivor.isAlive()) {
-
-                    zombie.health -= survivor.attack;
+                    double missChance = Math.random();
+                    int damageBonus = 0;
+                    int x = random.nextInt(10);
+                    if ( weapons.get(x).accuracy > missChance){
+                        damageBonus = weapons.get(x).damage;
+                    }
+                    
+                    zombie.health -= (survivor.attack + damageBonus);
                     survivor.health -= zombie.attack;
 
                     if (zombie.health <= 0) {
-                        System.out.println(survivor.name + " " + i + " killed " + zombie.name + " " + j);
+                        System.out.println(survivor.name + " " + i + " killed " + zombie.name + " " + j + " with a " weapons.get(x).name );
                         zombiesKilled++;
                     }
                     if (survivor.health <= 0) {
@@ -107,4 +116,26 @@ public class Main {
         }
         return survivors;
     }
+    
+    private static Arraylist createWeaponsCache (ArrayList weapons){
+        for (int i = 0; i<10; i++){
+            double x = Math.random();
+            if (0 < x < 0.2){
+                weapons.add(new Handgun());
+            }
+            if (0.2 < x < 0.4){
+                weapons.add(new Shotgun());
+            }
+            if (0.4 < x < 0.6){
+                weapons.add(new SniperRifle());
+            }
+            if (0.6 < x < 0.8{
+                weapons.add(new Grenade());
+            }
+            if (0.8 < x < 1.0){
+                weapons.add(new AssultRifle());
+            }
+         }
+      }   
+        
 }
