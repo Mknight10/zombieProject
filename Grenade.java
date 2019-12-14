@@ -2,8 +2,8 @@ package project;
 
 public class Grenade extends Weapon {
   public Grenade() {
-        name = "Grenade";
-        damage = 30;
+        String name = "Grenade";
+        int damage = 30;
         double accuarcy = 0.90;
     }
 }
